@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class Dealership {
-    private final Collection<Car> data;
+    private Collection<Car> data;
     public String name;
     public int capacity;
 
