@@ -53,17 +53,12 @@ public class Main {
         System.out.println(result.toString().trim());
     }
 
-    private static void appendArrayDequeElements(ArrayDeque<Integer> arrayDeque, StringBuilder result) {
-        ArrayList<String> tempList = new ArrayList<>(arrayDeque.stream().map(String::valueOf).collect(Collectors.toCollection(ArrayDeque::new)));
-        result.append(String.join(", ", tempList)).append(System.lineSeparator());
-    }
-
     private static void appendElementsLeft(ArrayDeque<Integer> arrayDeque, String element, StringBuilder result) {
         if (arrayDeque.isEmpty()) {
             result.append(String.format("%s left: none", element)).append(System.lineSeparator());
         } else {
             result.append(String.format("%s left: ", element));
-            appendArrayDequeElements(arrayDeque, result);
+            result.append(arrayDeque.stream().map(String::valueOf).collect(Collectors.joining(", "))).append(System.lineSeparator());
         }
     }
 
